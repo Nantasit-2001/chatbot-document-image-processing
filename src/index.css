@@ -41,7 +41,225 @@ hr {
   margin: 30px auto;
 }
 
-img {
+.uploaded-image {
   max-width: 100%;
   margin-bottom: 24px;
+}
+/* คุมขนาดเฉพาะ PDF icon */
+.pdf-icon {
+  width: 120px;
+  height: auto;
+  margin: 0 auto 24px;
+  display: block;
+  object-fit: contain;
+}
+
+
+/* HTML: <div class="loader"></div> */
+.loader {
+  width: 60px;
+  aspect-ratio: 2;
+  --_g: no-repeat radial-gradient(circle closest-side,#000 90%,#0000);
+  background: 
+    var(--_g) 0%   50%,
+    var(--_g) 50%  50%,
+    var(--_g) 100% 50%;
+  background-size: calc(100%/3) 50%;
+  animation: l3 1s infinite linear;
+}
+@keyframes l3 {
+    20%{background-position:0%   0%, 50%  50%,100%  50%}
+    40%{background-position:0% 100%, 50%   0%,100%  50%}
+    60%{background-position:0%  50%, 50% 100%,100%   0%}
+    80%{background-position:0%  50%, 50%  50%,100% 100%}
+}
+.center {
+  display: flex;
+  justify-content: center; 
+  align-items: center;              
+}
+
+.top-right-button {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  background-color: #687079;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  font-weight: bold;
+  transition: background-color 0.2s ease;
+  z-index: 1000;
+}
+
+.top-right-button:hover {
+  background-color: #0056b3;
+}
+
+section.chat-window {
+    padding-top: 24px;
+    
+    .chat {
+        padding: 20px;
+        background-color: #F6F6F6;
+        border-radius: 10px;
+        text-align: left;
+    
+        p {
+            border-radius: 20px;
+            margin: 2px 0;
+            font-size: 16px;
+            padding: 16px;
+            line-height: 20px;
+        }
+
+        div.loader{
+            
+            p {
+                margin: 16px 0;
+                padding: 0;
+            }
+
+        }
+    
+        div.user {
+            display: flex;
+            justify-content: flex-end;
+    
+            p {
+                width: 70%;
+                background-color: #40A0FF;
+                color: white;
+            }
+        }
+    
+        div.error {
+            p {
+                font-size: 14px;
+                color: red;
+            }
+        }
+    }
+    
+    .input-area {
+        display: flex;
+        align-items: center;
+        padding-top: 12px;
+    
+        button {
+            width: 120px;
+            height: 50px;
+            text-align: center;
+            box-sizing: border-box;
+            margin-left: 6px;
+            border-radius: 10px;
+            border: none;
+            background-color: #40A0FF;
+            color: white;
+        }
+    
+        input {
+            height: 50px;
+            box-sizing: border-box;
+            flex: 1;
+            border-radius: 10px;
+            border: 1px solid #E2E2E2;
+            padding-left: 20px;
+        }
+    }    
+}
+
+/* global.css หรือ style.css */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+
+.slider::before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #73d4fe;
+}
+
+input:checked + .slider::before {
+  transform: translateX(26px);
+}
+
+.switch-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem; /* ระยะห่างระหว่าง switch กับข้อความ */
+  margin-bottom: 2rem;
+}
+
+.switch-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem; /* ระยะห่างระหว่าง switch กับข้อความ */
+  margin-bottom: 2rem;
+   margin-top: 2rem;
+}
+
+/* เพิ่มใน global.css หรือไฟล์ CSS ที่คุณใช้รวม */
+
+.file-upload {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.file-upload h2 {
+  font-size: 24px;
+  margin-bottom: 1rem;
+}
+
+.file-upload-label {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: #40A0FF;
+  color: white;
+  font-weight: 600;
+  border-radius: 8px;
+  margin: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.file-upload-label:hover {
+  background-color: #3388dd;
+}
+
+.file-upload-input {
+  display: none; /* ซ่อน input file ดั้งเดิม */
 }
