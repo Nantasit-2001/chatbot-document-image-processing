@@ -1,4 +1,3 @@
-import { createPartFromUri, GoogleGenAI } from "@google/genai";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import { useState,useEffect } from "react";
 
